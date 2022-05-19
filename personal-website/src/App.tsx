@@ -4,7 +4,7 @@ import musician from './musician.JPG'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {Routes} from "react-router-dom";
 import MainPage from './Pages/MainPage';
-import Music from './Pages/Music';
+import Musician from './Pages/Musician';
 
 
 class App extends React.Component {
@@ -13,7 +13,7 @@ class App extends React.Component {
       <Router>
         <Routes>
           <Route path="/" element={<MainPage/>} />
-          <Route path="/Music" element={<Music/>} />
+          <Route path="/Musician" element={<Musician/>} />
         </Routes>
       </Router>
     );

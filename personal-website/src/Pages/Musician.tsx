@@ -4,7 +4,7 @@ import musician from './musician.JPG'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 
-export default function Music(): JSX.Element {
+export default function Musician(): JSX.Element {
     return (
         <div>
         <Link to='/'>

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import musician from './musician.JPG'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
+import Activity from '../Components/Activity';
 
 export default function mainPage(): JSX.Element {
     return (
@@ -11,19 +12,10 @@ export default function mainPage(): JSX.Element {
             <h1>
                 Harry Tianhong Feng
             </h1>
-                Student
-                <br></br>
-                <br></br>
-                Athlete
-                <br></br>
-                <br></br>
-                Musician
-                <br></br>
-                <Link to="/Music">
-                    <img className = "ImageLink" src = {musician} alt = "Musician Link Image" width="20%" height="10%" object-fit></img>
-                </Link>
-                <br></br>
-                Programmer
+                <Activity title = 'Student' image = '' url = 'Academics' ></Activity>
+                <Activity title = 'Athlete' image = '' url = 'Athletics'></Activity>
+                <Activity title = 'Musician' image = {musician} url = 'Music' ></Activity>
+                <Activity title = 'Programmer' image = '' url = 'Programming'></Activity>
             </div>
         </div> 
     );
