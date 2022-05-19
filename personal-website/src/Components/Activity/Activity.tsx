@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import musician from './musician.JPG'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import './Components.css';
+import './Activity.css';
 
 export default function Activity(props:{title:string, image:string, url:string}): JSX.Element {
     const {title, image, url} = props
