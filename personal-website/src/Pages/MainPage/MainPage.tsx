@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import musician from './musician.JPG'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './MainPage.css';
 import Activity from '../../Components/Activity/Activity';
+import Button from '../../Components/Button/Button'
 
 export default function mainPage(): JSX.Element {
     return (

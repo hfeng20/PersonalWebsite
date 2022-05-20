@@ -1,0 +1,17 @@
+.Header {
+    display: flex;
+    justify-content:flex-start;
+    position:relative;
+    background-color: beige;
+    border-bottom: 2px solid black;
+    height: 10vh
+}
+
+.Title {
+    flex: 0 1 auto;
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    font-size: 4vh;
+    height: 10vh;
+}
