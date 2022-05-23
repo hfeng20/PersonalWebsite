@@ -1,8 +1,22 @@
 .ToDoList {
     background-color: beige;
-    height: 100vh
+    height: 100vh;
 }
 
+.Body {
+    margin:9 auto;
+}
+
+.Todo {
+    width: fit-content;
+    font-size: 2vh
+}
 .Strike {
+    width: fit-content;
     text-decoration: line-through;
+    font-size: 2vh
+}
+
+.Note {
+    size: 10vh
 }
