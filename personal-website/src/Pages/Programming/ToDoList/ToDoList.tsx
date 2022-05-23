@@ -8,6 +8,7 @@ import Data from './Data.json'
 import ToDo from './ToDo'
 import PostIt from './postitnote.png'
 import AddToDo from './AddToDo'
+import background from './ToDoListBackground.webp'
 
 export default function ToDoList(): JSX.Element {
     const [ toDoList, setToDoList ] = useState(Data);
@@ -25,9 +26,16 @@ export default function ToDoList(): JSX.Element {
     }
     
     const addTask = (userInput:string) => {
+        if(userInput.length < 1) {
+            return
+        }
         let copy = [...toDoList];
         copy = [...copy, {id: toDoList.length + 1, task: userInput, complete: false}]
         setToDoList(copy)
+    }
+
+    const clearAll = () => {
+        setToDoList([])
     }
 
     return(    
@@ -40,7 +48,8 @@ export default function ToDoList(): JSX.Element {
                     )
                 })}
             </div>
-            <button onClick = {handleFilter}> Clear Completed</button>
+            <button className="ClearCompleted" onClick = {handleFilter}> Clear Completed</button>
+            <button className="ClearAll" onClick = {clearAll}>Clear All</button>
             <AddToDo AddTask = {addTask} ></AddToDo>
         </div>
     );

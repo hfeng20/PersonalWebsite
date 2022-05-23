@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import './ToDoList.css'
 
 const AddToDo = (props:{AddTask:(userInput:any) => any}) => {
     var {AddTask} = props
@@ -16,7 +16,7 @@ const AddToDo = (props:{AddTask:(userInput:any) => any}) => {
     }
 
     return (
-        <form onSubmit = {handleSubmit}>
+        <form className="AddToDo" onSubmit = {handleSubmit}>
             <input value = {userInput} onChange={handleChange}/>
             <button>Submit</button>
         </form>
