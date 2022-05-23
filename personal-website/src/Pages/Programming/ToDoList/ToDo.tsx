@@ -6,13 +6,10 @@ import './ToDoList.css';
 import Header from '../../../Components/Header/Header';
 import Data from './Data.json'
 
-const ToDo = (props:{todo:any}) => {
-    var {todo} = props
-    const handleToggle = () => {
-        todo.complete = true
-    }
+const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
+    var {todo, handleToggle} = props
     return (
-        <div className={todo.complete ? "Strike": ""} onClick={handleToggle}>
+        <div className={todo.complete ? "Strike": ""} onClick={() => {handleToggle(todo.id)} }>
             {todo.task}
         </div>
     );
