@@ -1,24 +1,4 @@
-.MainPage {
-  background-image: url("./background.JPG");
-  background-position-x: 60%;
-  background-position-y: 55%;
-  text-align: center;
-  height: 100vh;
-  background-size: 110%;
-  background-repeat: no-repeat;
-}
 
-.Bio {
-  width: 30%;
-  height: 80vh;
-  position: absolute;
-  right: 10%;
-  top: 10%;
-  border: 2px solid;
-  background-color: beige;
-  border-radius: 8%;
-  font-size: 1.2vw;
-}
 
 .App-logo {
   height: 40vmin;
