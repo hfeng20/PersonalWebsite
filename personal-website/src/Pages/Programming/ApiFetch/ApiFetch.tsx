@@ -1,6 +1,7 @@
 import { time } from 'console';
 import React, {useEffect, useState, } from 'react'
 import Header from '../../../Components/Header/Header';
+import Spinner from '../../../Components/Spinner/Spinner';
 import './ApiFetch.css'
 
 export default function ApiFetch(): JSX.Element {
@@ -22,6 +23,10 @@ export default function ApiFetch(): JSX.Element {
         fetchData()
     }, [])
 
+    // if(jsonData.length < 1) {
+    //     return <Spinner></Spinner>
+    // }
+    // else {
     return(
         <div className="ApiFetch">
             <Header back='/Programming' title='Fetching Web API Information'></Header>
@@ -35,6 +40,7 @@ export default function ApiFetch(): JSX.Element {
             </div>
         </div>
     );
+    // }
 }
 
 
