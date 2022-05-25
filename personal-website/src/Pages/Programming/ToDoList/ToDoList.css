@@ -1,22 +1,73 @@
 .ToDoList {
     background-color: beige;
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
 }
 
 .Body {
-    margin:9 auto;
+    margin:0 auto;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    background-repeat: no-repeat;
+    background-size:cover;
+    justify-content: center;
 }
 
 .Todo {
-    width: fit-content;
-    font-size: 2vh
+    max-width: 15vh;
+    word-wrap: break-word;
+    position:absolute;
+    transform:translateX(6%);
+    text-align:center;
 }
+
 .Strike {
-    width: fit-content;
+    max-width: 15vh;
+    word-wrap: break-word;
+    position:absolute;
+    transform:translateX(6%);
     text-decoration: line-through;
-    font-size: 2vh
+    text-align: center;
 }
 
 .Note {
-    size: 10vh
+    width: 20vh;
+}
+
+.AddToDo {
+    width: fit-content;
+    margin:0 auto;
+}
+
+.ClearCompleted {
+    display: block;
+    margin:0 auto;
+}
+
+.ClearAll {
+    display: block;
+    margin:0 auto;
+}
+
+.CompleteAll {
+    display: block;
+    margin:0 auto;
+}
+
+.ToggleAll {
+    display: block;
+    margin:0 auto;
+}
+
+
+.ToDoNote {
+    position: relative;
+    display:flex;
+    width: fit-content;
+    text-decoration: line-through;
+    font-size: 2vh;
+    /* margin:0 auto; */
+    align-items: center;
+    justify-content: center;
 }

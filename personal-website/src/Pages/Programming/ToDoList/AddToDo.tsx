@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
+import './ToDoList.css'
 
-
-const AddToDo = (props:{AddTask:(userInput:any) => any}) => {
+const AddToDo = (props:{AddTask:(taskInput:any) => any}) => {
     var {AddTask} = props
-    const [userInput, setUserInput] = useState("")
+    const [taskInput, setUserInput] = useState("")
 
     const handleChange = (e:any) => {
         setUserInput(e.currentTarget.value)
@@ -11,13 +11,12 @@ const AddToDo = (props:{AddTask:(userInput:any) => any}) => {
 
     const handleSubmit = (e:any) => {
         e.preventDefault()
-        AddTask(userInput)
+        AddTask(taskInput)
         setUserInput("")
     }
-
     return (
-        <form onSubmit = {handleSubmit}>
-            <input value = {userInput} onChange={handleChange}/>
+        <form className="AddToDo" onSubmit = {handleSubmit}>
+            <input value = {taskInput} onChange={handleChange}/>
             <button>Submit</button>
         </form>
     )

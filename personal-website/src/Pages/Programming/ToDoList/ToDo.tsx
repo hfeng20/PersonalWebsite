@@ -10,10 +10,17 @@ import PostIt from './postitnote.png'
 const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
     var {todo, handleToggle} = props
     return (
-        <div className={todo.complete ? "Strike": "Todo"} onClick={() => {handleToggle(todo.id)} }>
-            {todo.task}
+        <div className="ToDoNote" onClick={() => {handleToggle(todo.id)} }>
+            <img className="Note" src={PostIt}></img>
+            <text className={todo.complete ? "Strike": "Todo"}>{todo.task}</text>
         </div>
     );
  };
 
  export default ToDo
+
+ export interface TodoObj {
+     id: number
+     todo:string
+     complete:boolean
+ }
