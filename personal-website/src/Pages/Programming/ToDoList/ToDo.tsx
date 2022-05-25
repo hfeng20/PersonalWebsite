@@ -18,3 +18,9 @@ const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
  };
 
  export default ToDo
+
+ export interface TodoObj {
+     id: number
+     todo:string
+     complete:boolean
+ }

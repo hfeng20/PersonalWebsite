@@ -11,6 +11,7 @@
     flex-wrap: wrap;
     background-repeat: no-repeat;
     background-size:cover;
+    justify-content: center;
 }
 
 .Todo {
@@ -18,13 +19,16 @@
     word-wrap: break-word;
     position:absolute;
     transform:translateX(6%);
+    text-align:center;
 }
+
 .Strike {
     max-width: 15vh;
     word-wrap: break-word;
     position:absolute;
     transform:translateX(6%);
     text-decoration: line-through;
+    text-align: center;
 }
 
 .Note {
@@ -46,13 +50,24 @@
     margin:0 auto;
 }
 
+.CompleteAll {
+    display: block;
+    margin:0 auto;
+}
+
+.ToggleAll {
+    display: block;
+    margin:0 auto;
+}
+
+
 .ToDoNote {
     position: relative;
     display:flex;
     width: fit-content;
     text-decoration: line-through;
     font-size: 2vh;
-    margin:0 auto;
+    /* margin:0 auto; */
     align-items: center;
     justify-content: center;
 }
