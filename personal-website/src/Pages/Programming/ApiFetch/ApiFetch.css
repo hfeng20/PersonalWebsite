@@ -1,6 +1,7 @@
 .ApiFetch {
     background-color:beige;
-    min-height: 100vh
+    min-height: 100vh;
+    text-align: center;
 }
 
 .Loaded {
@@ -37,4 +38,12 @@
 .StatusTrue {
     text-align: center;
     color: green
+}
+
+.validInput {
+    border-color:green;
+}
+
+.invalidInput {
+    border-color:gold;
 }
