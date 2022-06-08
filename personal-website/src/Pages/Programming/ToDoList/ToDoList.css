@@ -5,30 +5,30 @@
 }
 
 .Body {
-    margin:0 auto;
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    background-repeat: no-repeat;
-    background-size:cover;
+    width: 100%;
+    align-items:center;
     justify-content: center;
 }
 
 .Todo {
+    border: 2px solid red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     max-width: 15vh;
     word-wrap: break-word;
-    position:absolute;
-    transform:translateX(6%);
-    text-align:center;
+    margin: auto auto;
 }
 
 .Strike {
+    border: 2px solid green;
+    width: 20px;
+    border-radius: 50%;
+    height: 20px;
     max-width: 15vh;
     word-wrap: break-word;
-    position:absolute;
-    transform:translateX(6%);
-    text-decoration: line-through;
-    text-align: center;
+    margin: auto auto;
 }
 
 .Note {
@@ -60,14 +60,30 @@
     margin:0 auto;
 }
 
+.TodoDescription {
+    width: 90%;
+    display: grid;
+}
 
 .ToDoNote {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    height: 60px;
+    width: 80vh;
     position: relative;
     display:flex;
-    width: fit-content;
-    text-decoration: line-through;
-    font-size: 2vh;
-    /* margin:0 auto; */
-    align-items: center;
-    justify-content: center;
+    justify-content: left;
+
+}
+
+.TodoTitle {
+    font-weight:800;
+    font-size: 20px;
+}
+
+.TodoDesc {
+    font-size: 15px;
 }

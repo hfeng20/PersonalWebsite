@@ -11,8 +11,11 @@ const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
     var {todo, handleToggle} = props
     return (
         <div className="ToDoNote" onClick={() => {handleToggle(todo.id)} }>
-            <img className="Note" src={PostIt}></img>
-            <text className={todo.complete ? "Strike": "Todo"}>{todo.task}</text>
+            <div className={todo.complete ? "Strike": "Todo"}></div>
+            <div className="TodoDescription">
+                <text className="TodoTitle">{todo.task}</text>
+                <text className="TodoDesc">Description</text>
+            </div>
         </div>
     );
  };
