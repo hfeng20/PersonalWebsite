@@ -1,14 +1,4 @@
-.ApiFetch {
-    background-color:beige;
-    min-height: 100vh;
-    text-align: center;
-}
-
-.Loaded {
-    text-align: center;
-}
-
-.Loading {
+.Spinner {
     margin:0 auto;
     text-align:center;
     border: 2px solid black; /* Light grey */
@@ -28,22 +18,4 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-.StatusFalse {
-    text-align: center;
-    color:red
-}
-
-.StatusTrue {
-    text-align: center;
-    color: green
-}
-
-.validInput {
-    border-color:green;
-}
-
-.invalidInput {
-    border-color:gold;
 }
