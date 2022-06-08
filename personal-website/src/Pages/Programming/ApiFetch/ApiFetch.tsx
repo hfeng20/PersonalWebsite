@@ -38,8 +38,10 @@ export default function ApiFetch(): JSX.Element {
     const [validity, setValidity] = useState(false)
 
     let timeout:NodeJS.Timeout;
+
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value)
+        
     }
     
     useEffect(() => {
@@ -90,6 +92,21 @@ export default function ApiFetch(): JSX.Element {
             <form>
                 <input className = {validity ? "validInput":"invalidInput"} value={searchQuery} onChange={handleChange} id = "validator"></input>
             </form>
+            <p>
+                {
+                    "App Name: " + navigator.appName
+                }
+            </p>
+            <p>
+                {
+                    "Language: " + navigator.language
+                }
+            </p>
+            <p>
+                {
+                    "Platform: " + navigator.platform
+                }
+            </p>
         </div>
     );
     // }
@@ -98,6 +115,5 @@ export default function ApiFetch(): JSX.Element {
 /*
 TODO:
 - type ahead search
-- vercel deployment
-- navigator in chrome console
+- vercel router
 */
