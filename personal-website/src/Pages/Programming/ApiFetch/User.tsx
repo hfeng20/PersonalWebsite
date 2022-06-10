@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-interface UserObj {
+interface User {
     name:string
     email:string
 }
 
-export default UserObj
+export default User
