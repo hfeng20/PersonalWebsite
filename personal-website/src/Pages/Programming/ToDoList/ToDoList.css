@@ -5,39 +5,52 @@
 }
 
 .Body {
-    margin:0 auto;
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    background-repeat: no-repeat;
-    background-size:cover;
+    width: 100%;
+    align-items:center;
     justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 500px;
 }
 
 .Todo {
+    position:absolute;
+    transform:translate(20px, 20px);
+    border: 2px solid red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     max-width: 15vh;
     word-wrap: break-word;
-    position:absolute;
-    transform:translateX(6%);
-    text-align:center;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
 }
 
 .Strike {
+    position:absolute;
+    transform:translate(20px, 20px);
+    border: 2px solid green;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     max-width: 15vh;
     word-wrap: break-word;
-    position:absolute;
-    transform:translateX(6%);
-    text-decoration: line-through;
-    text-align: center;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.IndicatorContainer {
+    position:relative;
+    flex-basis:60px;
+    flex-grow: 0;
+	flex-shrink: 0;
 }
 
 .Note {
     width: 20vh;
-}
-
-.AddToDo {
-    width: fit-content;
-    margin:0 auto;
 }
 
 .ClearCompleted {
@@ -60,14 +73,217 @@
     margin:0 auto;
 }
 
+.TodoDescription {
+    display: grid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    flex-basis:100%;
+    flex-grow: 0;
+}
 
 .ToDoNote {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    height: 60px;
+    max-width: 80vh;
     position: relative;
     display:flex;
-    width: fit-content;
-    text-decoration: line-through;
-    font-size: 2vh;
-    /* margin:0 auto; */
-    align-items: center;
-    justify-content: center;
+    justify-content: left;
+
 }
+
+.TodoTagContainer {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    position:relative;
+}
+
+.SelectTagContainer {
+    display:flex;
+    align-items: center;
+    padding-right: 15px;
+    position:relative;
+}
+
+.InvalidSelectTag {
+    position:relative;
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding: 4px 4px 4px 4px;
+    border:none;
+    margin-right: 0;
+    border: solid red;
+}
+
+.TodoTag {
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding: 4px 4px 4px 4px;
+    border:none;
+}
+
+.SelectTag {
+    position:relative;
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding: 4px 4px 4px 4px;
+    border:none;
+    margin-right: 0;
+    border: solid gray;
+}
+
+.dropdown {
+    display:none;
+    position:absolute;
+}
+
+.SelectTag:hover {
+    background-color: black;
+}
+.SelectTag:focus {
+    background-color: black;
+}
+.SelectTag:focus + .dropdown {
+    display:block;
+    display:grid;
+    z-index: 2;
+}
+
+.dropdown:hover {
+    display:block;
+    display:grid;
+    z-index: 2;
+}
+
+.textOption {
+    border: solid black;
+    background-color: darkgray;
+    color: white;
+}
+
+.textOption:hover {
+    background-color: black;
+    cursor:pointer;
+}
+
+.ToDoNote:hover {
+    cursor: pointer;
+}
+
+.TodoTitle {
+    font-weight:800;
+    padding-bottom:1px;
+    font-size: 20px;
+}
+
+.TodoDesc {
+    font-size: 15px;
+    padding-top:1px;
+}
+
+.SubHeader {
+    display:flex;
+    position:relative;
+    width: 80vh;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.addTodo {
+    position:relative;
+    width:120px;
+    font-size: 20px;
+    height: 40px;
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    border-style:none;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.addTodo:hover {
+    background-color:black;
+    cursor: pointer;
+}
+
+.showTemplate {
+    display: grid;
+}
+
+.Button {
+    width: fit-content;
+    margin: auto;
+}
+
+.inputForm {
+    width: fit-content;
+    min-width: 10vh;
+}
+
+.failedInputForm {
+    border:solid red;
+    width: fit-content;
+    min-width: 10vh;
+}
+
+.AddToDoContainer {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    height: 60px;
+    width: 80vh;
+    position: relative;
+    display:flex;
+    justify-content: left;
+}
+
+.hideTemplate {
+    display: none;
+}
+
+/* .addToDo {
+    position:relative;
+    width:120px;
+    font-size: 20px;
+    height: 40px;
+    background-color: darkgray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    border-style:none;
+}
+
+.Dropdown {
+    position:relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.dropdown-content {
+    display:none;
+    position:absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.addToDo:hover {
+    background-color:gray
+}
+
+.addToDo:hover + .dropdown-content {display:block;}
+
+.dropdown-content:hover {
+    display:block;
+}
+*/

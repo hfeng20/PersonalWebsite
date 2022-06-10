@@ -6,21 +6,26 @@ import './ToDoList.css';
 import Header from '../../../Components/Header/Header';
 import Data from './Data.json'
 import PostIt from './postitnote.png'
+import TodoObj from './TodoObj';
 
-const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
+const ToDo = (props:{todo:TodoObj, handleToggle:(id: number) => void}) => {
     var {todo, handleToggle} = props
     return (
         <div className="ToDoNote" onClick={() => {handleToggle(todo.id)} }>
-            <img className="Note" src={PostIt}></img>
-            <text className={todo.complete ? "Strike": "Todo"}>{todo.task}</text>
+            <div className = "IndicatorContainer">
+                <div className={todo.complete ? "Strike": "Todo"}></div>
+            </div>
+            <div className="TodoDescription">
+                <text className="TodoTitle">{todo.task}</text>
+                <text className="TodoDesc">{todo.description}</text>
+            </div>
+            <div className="TodoTagContainer"> 
+                <text className="TodoTag">
+                    {todo.tag}  
+                </text>
+            </div>
         </div>
     );
  };
 
  export default ToDo
-
- export interface TodoObj {
-     id: number
-     todo:string
-     complete:boolean
- }

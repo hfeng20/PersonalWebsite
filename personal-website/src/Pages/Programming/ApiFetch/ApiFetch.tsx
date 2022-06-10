@@ -3,12 +3,12 @@ import React, {useEffect, useState} from 'react'
 import  HTMLInputElement from 'react'
 import Header from '../../../Components/Header/Header';
 import Spinner from '../../../Components/Spinner/Spinner';
-import UserObj from './User'
+import User from './User'
 import './ApiFetch.css'
 
 export default function ApiFetch(): JSX.Element {
-    const [jsonData, setJsonData] = useState<UserObj[]>([]);
-    const [originalData, setOriginalData] = useState<UserObj[]>([]);
+    const [jsonData, setJsonData] = useState<User[]>([]);
+    const [originalData, setOriginalData] = useState<User[]>([]);
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         const url = "https://jsonplaceholder.typicode.com/users"
@@ -20,7 +20,7 @@ export default function ApiFetch(): JSX.Element {
                 const json:[] = await response.json()
                 await new Promise(f => setTimeout(f, 1000));
                 const userArray = json.map(user => {
-                    let newUser: UserObj = {name:user['name'], email:user['email']}
+                    let newUser: User = {name:user['name'], email:user['email']}
                     return newUser
                 })
                 setJsonData(userArray)
@@ -57,15 +57,6 @@ export default function ApiFetch(): JSX.Element {
             }
             setValidity(false)
         }, 1000);
-        // const filteredData = originalData.filter(user => JSON.stringify(user.email).includes(searchQuery))
-        // setJsonData(filteredData)
-        // for(let user of jsonData) {
-        //     if(user.email === searchQuery) {
-        //         setValidity(true)
-        //         return
-        //     }
-        // }
-        // setValidity(false)
     }, [searchQuery])
 
     // let input = document.getElementById("validator")!
