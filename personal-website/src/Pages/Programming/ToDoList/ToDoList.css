@@ -8,6 +8,7 @@
     width: 100%;
     align-items:center;
     justify-content: center;
+    padding-top: 10px;
 }
 
 .Todo {
@@ -35,11 +36,6 @@
     width: 20vh;
 }
 
-.AddToDo {
-    width: fit-content;
-    margin:0 auto;
-}
-
 .ClearCompleted {
     display: block;
     margin:0 auto;
@@ -63,6 +59,8 @@
 .TodoDescription {
     width: 90%;
     display: grid;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .ToDoNote {
@@ -81,9 +79,55 @@
 
 .TodoTitle {
     font-weight:800;
+    padding-bottom:1px;
     font-size: 20px;
 }
 
 .TodoDesc {
     font-size: 15px;
+    padding-top:1px;
+}
+
+.addToDo {
+    position:relative;
+    width:120px;
+    font-size: 20px;
+    height: 40px;
+    background-color: darkgray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    border-style:none;
+}
+
+.Dropdown {
+    position:relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.dropdown-content {
+    display:none;
+    position:absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.addToDo:hover {
+    background-color:gray
+}
+
+.addToDo:hover + .dropdown-content {display:block;}
+
+.dropdown-content:hover {
+    display:block;
+}
+
+.TodoHeader {
+    display:flex;
+    position:relative;
+    width: 80vh;
+    margin: 0 auto;
+    align-items: center;
 }

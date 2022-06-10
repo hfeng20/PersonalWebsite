@@ -5,13 +5,18 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './ToDoList.css';
 import Header from '../../../Components/Header/Header';
 import Data from './Data.json'
-import ToDo, {TodoObj} from './ToDo'
+import ToDo from './ToDo'
 import PostIt from './postitnote.png'
 import AddToDo from './AddToDo'
 import background from './ToDoListBackground.webp'
+import TodoObj from './TodoObj'
 
 export default function ToDoList(): JSX.Element {
-    const [ toDoList, setToDoList ] = useState(Data);
+    let toDoObjArray:TodoObj[] = Data.map(todo => {
+        let newTodo: TodoObj = {task: todo.task, description: "Today", tags: [], id: todo.id, complete: todo.complete}
+        return newTodo
+    })
+    const [ toDoList, setToDoList ] = useState(toDoObjArray)
     const handleFilter = () => {
         let filtered = toDoList.filter(task => {
           return !task.complete;
@@ -30,7 +35,7 @@ export default function ToDoList(): JSX.Element {
             return
         }
         let copy = [...toDoList];
-        copy = [...copy, {id: toDoList.length + 1, task: taskInput, complete: false}]
+        copy = [...copy, {id: toDoList.length + 1, task: taskInput, complete: false, tags: [], description: "Today"}]
         setToDoList(copy)
     }
 
@@ -56,17 +61,25 @@ export default function ToDoList(): JSX.Element {
         <div className = "ToDoList">
             <Header back = '/Programming' title = 'To-do List'></Header>
             <div className = "Body">
+                <div className = "TodoHeader">
+                    <h1>Todo</h1>
+                    <div className = "Dropdown">
+                        <button className = "addToDo"> New Todo </button>
+                        <div className = "dropdown-content" >
+                            <AddToDo AddTask = {addTask} ></AddToDo>
+                        </div>
+                    </div>
+                </div>
                 {toDoList.map(todo => {
                     return (
                         <ToDo todo={todo} handleToggle={handleToggle} />
                     )
                 })}
             </div>
-            <button className="ClearCompleted" onClick = {handleFilter}> Clear Completed</button>
+            {/* <button className="ClearCompleted" onClick = {handleFilter}> Clear Completed</button>
             <button className="ClearAll" onClick = {clearAll}>Clear All</button>
             <button className="CompleteAll" onClick = {completeAll}>Complete All</button>
-            <button className="ToggleAll" onClick = {toggleAll}>Toggle All</button>
-            <AddToDo AddTask = {addTask} ></AddToDo>
+            <button className="ToggleAll" onClick = {toggleAll}>Toggle All</button> */}
         </div>
     );
 }

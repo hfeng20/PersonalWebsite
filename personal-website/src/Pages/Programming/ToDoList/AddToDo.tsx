@@ -15,7 +15,7 @@ const AddToDo = (props:{AddTask:(taskInput:any) => any}) => {
         setUserInput("")
     }
     return (
-        <form className="AddToDo" onSubmit = {handleSubmit}>
+        <form onSubmit = {handleSubmit}>
             <input value = {taskInput} onChange={handleChange}/>
             <button>Submit</button>
         </form>

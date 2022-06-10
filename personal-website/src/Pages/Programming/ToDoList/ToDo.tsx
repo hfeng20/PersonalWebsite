@@ -6,6 +6,7 @@ import './ToDoList.css';
 import Header from '../../../Components/Header/Header';
 import Data from './Data.json'
 import PostIt from './postitnote.png'
+import TodoObj from './TodoObj';
 
 const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
     var {todo, handleToggle} = props
@@ -14,16 +15,11 @@ const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
             <div className={todo.complete ? "Strike": "Todo"}></div>
             <div className="TodoDescription">
                 <text className="TodoTitle">{todo.task}</text>
-                <text className="TodoDesc">Description</text>
+                <text className="TodoDesc">{todo.description}</text>
+                <div className="TodoTags"> {todo.tags} </div>
             </div>
         </div>
     );
  };
 
  export default ToDo
-
- export interface TodoObj {
-     id: number
-     todo:string
-     complete:boolean
- }
