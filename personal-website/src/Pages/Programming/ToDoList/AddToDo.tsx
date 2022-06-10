@@ -61,7 +61,7 @@ const AddToDo = (props:{show:boolean, setShow: React.Dispatch<React.SetStateActi
         <div className = {show ? "showTemplate":"hideTemplate"}>
             <div className = "AddToDoContainer">
             <div className = "IndicatorContainer">
-                <div className="Todo"></div>
+                <div className={tagInput === "Select..." ? "DefaultTodo": (tagInput + "Todo")}></div>
             </div>
                 <form className = "TodoDescription" onSubmit = {handleSubmit}>
                     <input className = {invalidTask ? "failedInputForm":"inputForm"} placeholder = "Todo" value = {taskInput} onChange={handleTaskChange}/>
