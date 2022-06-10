@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import musician from './musician.JPG'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -12,11 +12,13 @@ import background from './ToDoListBackground.webp'
 import TodoObj from './TodoObj'
 
 export default function ToDoList(): JSX.Element {
-    let toDoObjArray:TodoObj[] = Data.map(todo => {
+    let [ toDoObjArray, setToDoObjArray ] = useState(Data.map(todo => {
         let newTodo: TodoObj = {task: todo.task, description: "Default", tag: "Default", id: todo.id, complete: todo.complete}
         return newTodo
-    })
-    const [ toDoList, setToDoList ] = useState(toDoObjArray)
+    }))
+    let IDNumber = toDoObjArray.length + 1;
+    const [ toDoList, setToDoList ] = useState(toDoObjArray.filter(todo => !todo.complete))
+    const [ completedTodoList, setCompletedTodoList ] = useState(toDoObjArray.filter(todo => todo.complete))
     const handleFilter = () => {
         let filtered = toDoList.filter(task => {
           return !task.complete;
@@ -24,37 +26,38 @@ export default function ToDoList(): JSX.Element {
         setToDoList(filtered);
       }
     const handleToggle = (id:number) => {
-        let mapped = toDoList.map(task => {
+        let mapped = toDoObjArray.map(task => {
             return id ===  task.id ? { ...task, complete: !task.complete } : { ...task};
         })
-        setToDoList(mapped);
+        setToDoObjArray(mapped)
     }
     
     const addTask = (taskInput:string, descriptionInput:string, tagInput:string) => {
         if(taskInput.length < 1) {
             return
         }
-        let copy = [...toDoList];
-        copy = [{id: toDoList.length + 1, task: taskInput, complete: false, tag: tagInput, description: descriptionInput}, ...copy]
-        setToDoList(copy)
+        let copy = [...toDoObjArray];
+        copy = [{id: IDNumber, task: taskInput, complete: false, tag: tagInput, description: descriptionInput}, ...copy]
+        IDNumber++;
+        setToDoObjArray(copy)
     }
 
     const clearAll = () => {
-        setToDoList([])
+        setToDoObjArray([])
     }
 
     const completeAll = () => {
-        let mapped = toDoList.map(task => {
+        let mapped = toDoObjArray.map(task => {
             return { ...task, complete: true };
         })
-        setToDoList(mapped);
+        setToDoObjArray(mapped);
     }
 
     const toggleAll = () => {
-        let mapped = toDoList.map(task => {
+        let mapped = toDoObjArray.map(task => {
             return { ...task, complete: !task.complete };
         })
-        setToDoList(mapped);
+        setToDoObjArray(mapped);
     }
     const [ showAddTodo , setShowAddTodo ] = useState(false)
     const showTemplate = () => {
@@ -64,11 +67,21 @@ export default function ToDoList(): JSX.Element {
         setShowAddTodo(false)
     }
 
+    const clearCompleted = () => {
+        setToDoObjArray(toDoObjArray.filter(task => !task.complete))
+    }
+
+
+    useEffect(() => {
+        setToDoList(toDoObjArray.filter(todo => !todo.complete))
+        setCompletedTodoList(toDoObjArray.filter(todo => todo.complete))
+    }, [toDoObjArray])
+
     return(    
         <div className = "ToDoList">
             <Header back = '/Programming' title = 'To-do List'></Header>
             <div className = "Body">
-                <div className = "TodoHeader">
+                <div className = "SubHeader">
                     <h1>Todo</h1>
                     <button className = "addTodo" onClick={showTemplate} title="Add Todo">Add Todo</button>
                     {/* <div className = "Dropdown">
@@ -80,6 +93,21 @@ export default function ToDoList(): JSX.Element {
                 </div>
                 <AddToDo show = {showAddTodo} setShow = {setShowAddTodo} AddTask = {addTask}></AddToDo>
                 {toDoList.map(todo => {
+                    return (
+                        <ToDo todo={todo} handleToggle={handleToggle} />
+                    )
+                })}
+                <div className = "SubHeader">
+                    <h1>Completed</h1>
+                    <button className = "addTodo" onClick={clearCompleted} title="Add Todo">Clear</button>
+                    {/* <div className = "Dropdown">
+                        <button className = "addToDo"> New Todo </button>
+                        <div className = "dropdown-content" >
+                            <AddToDo AddTask = {addTask} ></AddToDo>
+                        </div>
+                    </div> */}
+                </div>
+                {completedTodoList.map(todo => {
                     return (
                         <ToDo todo={todo} handleToggle={handleToggle} />
                     )

@@ -74,7 +74,7 @@ const AddToDo = (props:{show:boolean, setShow: React.Dispatch<React.SetStateActi
                         <button className="textOption" onClick = {() => setTag("Home")}>Home</button>
                         <button className="textOption" onClick = {() => setTag("Work")}>Work</button>
                         <button className="textOption" onClick = {() => setTag("Fitness")}>Fitness</button>
-                        <button className="textOption" onClick = {() => setTag("Schffffffool")}>School</button>
+                        <button className="textOption" onClick = {() => setTag("School")}>School</button>
                         <button className="textOption" onClick = {() => setTag("Nutrition")}>Nutrition</button>
                         <button className="textOption" onClick = {() => setTag("Pets")}>Pets</button>
                     </div>
