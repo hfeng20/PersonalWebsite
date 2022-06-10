@@ -12,6 +12,8 @@
 }
 
 .Todo {
+    position:absolute;
+    transform:translate(20px, 20px);
     border: 2px solid red;
     border-radius: 50%;
     width: 20px;
@@ -19,17 +21,31 @@
     border-radius: 50%;
     max-width: 15vh;
     word-wrap: break-word;
-    margin: auto auto;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
 }
 
 .Strike {
+    position:absolute;
+    transform:translate(20px, 20px);
     border: 2px solid green;
-    width: 20px;
     border-radius: 50%;
+    width: 20px;
     height: 20px;
+    border-radius: 50%;
     max-width: 15vh;
     word-wrap: break-word;
-    margin: auto auto;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.IndicatorContainer {
+    position:relative;
+    flex-basis:60px;
+    flex-grow: 0;
+	flex-shrink: 0;
 }
 
 .Note {
@@ -57,10 +73,11 @@
 }
 
 .TodoDescription {
-    width: 90%;
     display: grid;
     padding-top: 5px;
     padding-bottom: 5px;
+    flex-basis:100%;
+    flex-grow: 0;
 }
 
 .ToDoNote {
@@ -70,11 +87,93 @@
     border: 1px solid black;
     border-radius: 5px 5px 5px 5px;
     height: 60px;
-    width: 80vh;
+    max-width: 80vh;
     position: relative;
     display:flex;
     justify-content: left;
 
+}
+
+.TodoTagContainer {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    position:relative;
+}
+
+.SelectTagContainer {
+    display:flex;
+    align-items: center;
+    padding-right: 15px;
+    position:relative;
+}
+
+.InvalidSelectTag {
+    position:relative;
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding: 4px 4px 4px 4px;
+    border:none;
+    margin-right: 0;
+    border: solid red;
+}
+
+.TodoTag {
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding: 4px 4px 4px 4px;
+    border:none;
+}
+
+.SelectTag {
+    position:relative;
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    padding: 4px 4px 4px 4px;
+    border:none;
+    margin-right: 0;
+    border: solid gray;
+}
+
+.dropdown {
+    display:none;
+    position:absolute;
+}
+
+.SelectTag:hover {
+    background-color: black;
+}
+.SelectTag:focus {
+    background-color: black;
+}
+.SelectTag:focus + .dropdown {
+    display:block;
+    display:grid;
+    z-index: 2;
+}
+
+.dropdown:hover {
+    display:block;
+    display:grid;
+    z-index: 2;
+}
+
+.textOption {
+    border: solid black;
+    background-color: darkgray;
+    color: white;
+}
+
+.textOption:hover {
+    background-color: black;
+    cursor:pointer;
+}
+
+.ToDoNote:hover {
+    cursor: pointer;
 }
 
 .TodoTitle {
@@ -88,7 +187,70 @@
     padding-top:1px;
 }
 
-.addToDo {
+.TodoHeader {
+    display:flex;
+    position:relative;
+    width: 80vh;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.addTodo {
+    position:relative;
+    width:120px;
+    font-size: 20px;
+    height: 40px;
+    background-color: gray;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    border-style:none;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.addTodo:hover {
+    background-color:black;
+    cursor: pointer;
+}
+
+.showTemplate {
+    display: grid;
+}
+
+.Button {
+    width: fit-content;
+    margin: auto;
+}
+
+.inputForm {
+    width: fit-content;
+    min-width: 10vh;
+}
+
+.failedInputForm {
+    border:solid red;
+    width: fit-content;
+    min-width: 10vh;
+}
+
+.AddToDoContainer {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    height: 60px;
+    width: 80vh;
+    position: relative;
+    display:flex;
+    justify-content: left;
+}
+
+.hideTemplate {
+    display: none;
+}
+
+/* .addToDo {
     position:relative;
     width:120px;
     font-size: 20px;
@@ -123,11 +285,4 @@
 .dropdown-content:hover {
     display:block;
 }
-
-.TodoHeader {
-    display:flex;
-    position:relative;
-    width: 80vh;
-    margin: 0 auto;
-    align-items: center;
-}
+*/

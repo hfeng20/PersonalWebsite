@@ -13,7 +13,7 @@ import TodoObj from './TodoObj'
 
 export default function ToDoList(): JSX.Element {
     let toDoObjArray:TodoObj[] = Data.map(todo => {
-        let newTodo: TodoObj = {task: todo.task, description: "Today", tags: [], id: todo.id, complete: todo.complete}
+        let newTodo: TodoObj = {task: todo.task, description: "Default", tag: "Default", id: todo.id, complete: todo.complete}
         return newTodo
     })
     const [ toDoList, setToDoList ] = useState(toDoObjArray)
@@ -30,12 +30,12 @@ export default function ToDoList(): JSX.Element {
         setToDoList(mapped);
     }
     
-    const addTask = (taskInput:string, descriptionInput:string, tagsInput:string[]) => {
+    const addTask = (taskInput:string, descriptionInput:string, tagInput:string) => {
         if(taskInput.length < 1) {
             return
         }
         let copy = [...toDoList];
-        copy = [...copy, {id: toDoList.length + 1, task: taskInput, complete: false, tags: tagsInput, description: descriptionInput}]
+        copy = [{id: toDoList.length + 1, task: taskInput, complete: false, tag: tagInput, description: descriptionInput}, ...copy]
         setToDoList(copy)
     }
 
@@ -56,6 +56,13 @@ export default function ToDoList(): JSX.Element {
         })
         setToDoList(mapped);
     }
+    const [ showAddTodo , setShowAddTodo ] = useState(false)
+    const showTemplate = () => {
+        setShowAddTodo(true)
+    }
+    const hideTemplate = () => {
+        setShowAddTodo(false)
+    }
 
     return(    
         <div className = "ToDoList">
@@ -63,13 +70,15 @@ export default function ToDoList(): JSX.Element {
             <div className = "Body">
                 <div className = "TodoHeader">
                     <h1>Todo</h1>
-                    <div className = "Dropdown">
+                    <button className = "addTodo" onClick={showTemplate} title="Add Todo">Add Todo</button>
+                    {/* <div className = "Dropdown">
                         <button className = "addToDo"> New Todo </button>
                         <div className = "dropdown-content" >
                             <AddToDo AddTask = {addTask} ></AddToDo>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
+                <AddToDo show = {showAddTodo} setShow = {setShowAddTodo} AddTask = {addTask}></AddToDo>
                 {toDoList.map(todo => {
                     return (
                         <ToDo todo={todo} handleToggle={handleToggle} />

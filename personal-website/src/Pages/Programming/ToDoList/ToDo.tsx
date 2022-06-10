@@ -8,15 +8,21 @@ import Data from './Data.json'
 import PostIt from './postitnote.png'
 import TodoObj from './TodoObj';
 
-const ToDo = (props:{todo:any, handleToggle:(id: number) => void}) => {
+const ToDo = (props:{todo:TodoObj, handleToggle:(id: number) => void}) => {
     var {todo, handleToggle} = props
     return (
         <div className="ToDoNote" onClick={() => {handleToggle(todo.id)} }>
-            <div className={todo.complete ? "Strike": "Todo"}></div>
+            <div className = "IndicatorContainer">
+                <div className={todo.complete ? "Strike": "Todo"}></div>
+            </div>
             <div className="TodoDescription">
                 <text className="TodoTitle">{todo.task}</text>
                 <text className="TodoDesc">{todo.description}</text>
-                <div className="TodoTags"> {todo.tags} </div>
+            </div>
+            <div className="TodoTagContainer"> 
+                <text className="TodoTag">
+                    {todo.tag}  
+                </text>
             </div>
         </div>
     );
