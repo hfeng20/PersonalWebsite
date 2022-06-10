@@ -30,12 +30,12 @@ export default function ToDoList(): JSX.Element {
         setToDoList(mapped);
     }
     
-    const addTask = (taskInput:string) => {
+    const addTask = (taskInput:string, descriptionInput:string, tagsInput:string[]) => {
         if(taskInput.length < 1) {
             return
         }
         let copy = [...toDoList];
-        copy = [...copy, {id: toDoList.length + 1, task: taskInput, complete: false, tags: [], description: "Today"}]
+        copy = [...copy, {id: toDoList.length + 1, task: taskInput, complete: false, tags: tagsInput, description: descriptionInput}]
         setToDoList(copy)
     }
 

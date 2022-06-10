@@ -1,22 +1,30 @@
 import React, {useState} from 'react';
 import './ToDoList.css'
 
-const AddToDo = (props:{AddTask:(taskInput:any) => any}) => {
+const AddToDo = (props:{AddTask:(taskInput:string, descriptionInput:string, tagsInput:string[]) => void}) => {
     var {AddTask} = props
-    const [taskInput, setUserInput] = useState("")
+    const [taskInput, setTaskInput] = useState("")
+    const [descInput, setDescInput] = useState("")
+    const [tagsInput, setTagsInput] = useState([])
 
-    const handleChange = (e:any) => {
-        setUserInput(e.currentTarget.value)
+    const handleTaskChange = (e:any) => {
+        setTaskInput(e.currentTarget.value)
+    }
+
+    const handleDescChange = (e:any) => {
+        setDescInput(e.currentTarget.value)
     }
 
     const handleSubmit = (e:any) => {
         e.preventDefault()
-        AddTask(taskInput)
-        setUserInput("")
+        AddTask(taskInput, descInput, tagsInput)
+        setTaskInput("")
+        setDescInput("")
     }
     return (
         <form onSubmit = {handleSubmit}>
-            <input value = {taskInput} onChange={handleChange}/>
+            <input value = {taskInput} onChange={handleTaskChange}/>
+            <input value = {descInput} onChange={handleDescChange}/>
             <button>Submit</button>
         </form>
     )
