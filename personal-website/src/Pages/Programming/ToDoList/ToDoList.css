@@ -1,7 +1,8 @@
 .ToDoList {
-    background-color: beige;
+    background-color: white;
     min-height: 100vh;
     height: fit-content;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .Body {
@@ -12,10 +13,11 @@
     padding-bottom: 500px;
 }
 
-.Todo {
+.DefaultTodo {
+    content-visibility: hidden;
     position:absolute;
-    transform:translate(20px, 20px);
-    border: 2px solid red;
+    transform:translate(20px,30px);
+    border: 2px solid gray;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -27,9 +29,58 @@
 	flex-shrink: 0;
 }
 
-.Strike {
+.HomeTodo {
+    content-visibility: hidden;
     position:absolute;
-    transform:translate(20px, 20px);
+    transform:translate(20px,30px);
+    border: 2px solid blue;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.WorkTodo {
+    content-visibility: hidden;
+    position:absolute;
+    transform:translate(20px,30px);
+    border: 2px solid purple;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.FitnessTodo {
+    content-visibility: hidden;
+    position:absolute;
+    transform:translate(20px,30px);
+    border: 2px solid orange;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.PetsTodo {
+    content-visibility: hidden;
+    position:absolute;
+    transform:translate(20px,30px);
     border: 2px solid green;
     border-radius: 50%;
     width: 20px;
@@ -40,6 +91,96 @@
     flex-basis:20px;
     flex-grow: 0;
 	flex-shrink: 0;
+}
+
+.DefaultStrike {
+    text-align:center;
+    color: white;
+    position:absolute;
+    transform:translate(20px,30px);
+    border: 2px solid gray;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+    background-color: gray;
+}
+
+.HomeStrike {
+    text-align:center;
+    color: white;
+    position:absolute;
+    transform:translate(20px,30px);
+    border: 2px solid blue;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+    background-color:blue
+}
+
+.WorkStrike {
+    text-align:center;
+    color: white;
+    position:absolute;
+    transform:translate(20px,30px);
+    border: 2px solid purple;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+    background-color:purple
+}
+
+.FitnessStrike {
+    text-align:center;
+    color: white;
+    position:absolute;
+    transform:translate(20px,30px);
+    border: 2px solid orange;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+    background-color:orange
+}
+
+.PetsStrike {
+    text-align:center;
+    color: white;
+    position:absolute;
+    transform:translate(20px,30px);
+    border: 2px solid green;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    max-width: 15vh;
+    word-wrap: break-word;
+    flex-basis:20px;
+    flex-grow: 0;
+	flex-shrink: 0;
+    background-color:green;
 }
 
 .IndicatorContainer {
@@ -85,9 +226,9 @@
     margin: auto;
     margin-top: 10px;
     margin-bottom: 5px;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     border-radius: 5px 5px 5px 5px;
-    height: 60px;
+    height: 80px;
     max-width: 80vh;
     position: relative;
     display:flex;
@@ -121,22 +262,24 @@
 }
 
 .TodoTag {
-    background-color: gray;
-    color: white;
-    border-radius: 5px 5px 5px 5px;
-    padding: 4px 4px 4px 4px;
+    background-color: whitesmoke;
+    color: black;
+    font-weight: 600;
+    border-radius: 2px 2px 2px 2px;
+    padding: 5px 15px 5px 15px;
     border:none;
 }
 
 .SelectTag {
     position:relative;
-    background-color: gray;
-    color: white;
-    border-radius: 5px 5px 5px 5px;
-    padding: 4px 4px 4px 4px;
+    background-color:whitesmoke;
+    color: black;
+    font-weight: 600;
+    border-radius: 2px 2px 2px 2px;
+    padding: 5px 15px 5px 15px;
     border:none;
     margin-right: 0;
-    border: solid gray;
+    border: solid whitesmoke;
 }
 
 .dropdown {
@@ -145,7 +288,7 @@
 }
 
 .SelectTag:hover {
-    background-color: black;
+    background-color: darkgray;
 }
 .SelectTag:focus {
     background-color: black;
@@ -179,13 +322,14 @@
 
 .TodoTitle {
     font-weight:800;
-    padding-bottom:1px;
+    padding-top: 10px;
     font-size: 20px;
+    text-overflow:ellipsis;
 }
 
 .TodoDesc {
     font-size: 15px;
-    padding-top:1px;
+    text-overflow:ellipsis;
 }
 
 .SubHeader {
@@ -199,14 +343,18 @@
 .addTodo {
     position:relative;
     width:120px;
-    font-size: 20px;
+    font-size: 15px;
     height: 40px;
-    background-color: gray;
-    color: white;
+    background-color:black;
+    color: whitesmoke;
     border-radius: 5px 5px 5px 5px;
     border-style:none;
     margin-left: auto;
     margin-right: 0;
+}
+
+.CompletedTodos {
+    opacity: 0.5;
 }
 
 .addTodo:hover {
