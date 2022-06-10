@@ -79,7 +79,7 @@ export default function ToDoList(): JSX.Element {
 
     return(    
         <div className = "ToDoList">
-            <Header back = '/Programming' title = 'To-do List'></Header>
+            <a href = '.'> Back </a>
             <div className = "Body">
                 <div className = "SubHeader">
                     <h1>Todo</h1>
@@ -107,11 +107,13 @@ export default function ToDoList(): JSX.Element {
                         </div>
                     </div> */}
                 </div>
-                {completedTodoList.map(todo => {
-                    return (
-                        <ToDo todo={todo} handleToggle={handleToggle} />
-                    )
-                })}
+                <div className = "CompletedTodos">
+                    {completedTodoList.map(todo => {
+                        return (
+                            <ToDo todo={todo} handleToggle={handleToggle} />
+                        )
+                    })}
+                </div>
             </div>
             {/* <button className="ClearCompleted" onClick = {handleFilter}> Clear Completed</button>
             <button className="ClearAll" onClick = {clearAll}>Clear All</button>

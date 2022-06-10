@@ -13,7 +13,11 @@ const ToDo = (props:{todo:TodoObj, handleToggle:(id: number) => void}) => {
     return (
         <div className="ToDoNote" onClick={() => {handleToggle(todo.id)} }>
             <div className = "IndicatorContainer">
-                <div className={todo.complete ? "Strike": "Todo"}></div>
+                <div className={todo.complete ? (todo.tag + "Strike"): (todo.tag + "Todo")}>
+                    <text >
+                        ✓
+                    </text>
+                </div>
             </div>
             <div className="TodoDescription">
                 <text className="TodoTitle">{todo.task}</text>
